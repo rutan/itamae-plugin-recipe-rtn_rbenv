@@ -38,7 +38,8 @@ include_recipe 'rtn_rbenv::system'
         "user": "vagrant",
         "versions": {
             "2.1.3": [
-                "bundler": {
+                {
+                    "name": "bundler",
                     "version": "1.7.3",
                     "force": true
                 },
