@@ -8,9 +8,9 @@ packages << 'git'
 
 case os[:family]
 when %r(debian|ubuntu)
-  packages << 'zlib-dev'
-  packages << 'openssl-dev'
-  packages << 'readline-dev'
+  packages << 'zlib1g-dev'
+  packages << 'libssl-dev'
+  packages << 'libreadline6-dev'
 when %r(redhat|fedora)
   packages << 'zlib-devel'
   packages << 'openssl-devel'

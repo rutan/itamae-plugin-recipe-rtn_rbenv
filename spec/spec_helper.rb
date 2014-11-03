@@ -16,9 +16,10 @@ else
 end
 
 host = ENV['TARGET_HOST']
+target = host.split('_')[1]
 
 `vagrant up #{host}`
-system("bundle exec itamae ssh -h #{host} --vagrant '#{File.expand_path("../#{host}/role.rb", __FILE__)}' -j '#{File.expand_path("../#{host}/node.json", __FILE__)}'")
+system("bundle exec itamae ssh -h #{host} --vagrant '#{File.expand_path("../#{target}/role.rb", __FILE__)}' -j '#{File.expand_path("../#{target}/node.json", __FILE__)}'")
 
 config = Tempfile.new('', Dir.tmpdir)
 `vagrant ssh-config #{host} > #{config.path}`

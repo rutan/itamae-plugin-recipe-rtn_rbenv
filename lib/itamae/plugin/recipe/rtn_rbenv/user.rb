@@ -16,15 +16,15 @@ EOS
 # define
 def ruby_install(version)
   execute "ruby install #{version}" do
-    command "source #{RBENV_PROFILE_PATH} && rbenv install #{version}"
+    command ". #{RBENV_PROFILE_PATH} && rbenv install #{version}"
     user RBENV_USER
-    not_if "test `source #{RBENV_PROFILE_PATH} && rbenv versions  | grep '#{version}' -c` != 0"
+    not_if "test `. #{RBENV_PROFILE_PATH} && rbenv versions  | grep '#{version}' -c` != 0"
   end
 end
 
 def gem_install(ruby_version, name, options = {})
   execute "gem install #{name}" do
-    command "source #{RBENV_PROFILE_PATH} && rbenv shell #{ruby_version} && gem install #{name} #{options[:version] ? "-v #{options[:version]}" : ''} #{options[:force] ? '--force' : ''}"
+    command ". #{RBENV_PROFILE_PATH} && rbenv shell #{ruby_version} && gem install #{name} #{options[:version] ? "-v #{options[:version]}" : ''} #{options[:force] ? '--force' : ''}"
     user RBENV_USER
   end
 end
@@ -61,7 +61,7 @@ end
 # set global
 if node['rtn_rbenv']['global']
   execute "rbenv global #{node['rtn_rbenv']['global']}" do
-    command "source #{RBENV_PROFILE_PATH} && rbenv global #{node['rtn_rbenv']['global']}"
+    command ". #{RBENV_PROFILE_PATH} && rbenv global #{node['rtn_rbenv']['global']}"
     user RBENV_USER
   end
 end

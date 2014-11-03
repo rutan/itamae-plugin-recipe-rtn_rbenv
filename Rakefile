@@ -11,15 +11,18 @@ namespace :spec do
     next unless File.directory?(dir)
     targets << File.basename(dir)
   end
+  platforms = %w[sl6 ubuntu1404]
 
   task :all     => targets
   task :default => :all
 
   targets.each do |target|
-    desc "Run serverspec tests to #{target}"
-    RSpec::Core::RakeTask.new(target.to_sym) do |t|
-      ENV['TARGET_HOST'] = target
-      t.pattern = "spec/#{target}/*_spec.rb"
+    platforms.each do |platform|
+      desc "Run serverspec tests to #{target} in #{platform}"
+      RSpec::Core::RakeTask.new(target.to_sym) do |t|
+        ENV['TARGET_HOST'] = "#{platform}_#{target}"
+        t.pattern = "spec/#{target}/*_spec.rb"
+      end
     end
   end
 end
