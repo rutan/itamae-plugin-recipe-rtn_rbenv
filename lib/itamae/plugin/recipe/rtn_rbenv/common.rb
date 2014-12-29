@@ -16,6 +16,7 @@ when %r(debian|ubuntu)
   packages << 'libreadline6-dev'
   packages << 'zlib1g-dev'
   packages << 'libncurses5-dev'
+  packages << 'libffi-dev'
 when %r(redhat|fedora)
   packages << 'zlib-devel'
   packages << 'openssl-devel'
