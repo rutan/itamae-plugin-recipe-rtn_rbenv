@@ -18,9 +18,14 @@ when %r(debian|ubuntu)
   packages << 'libncurses5-dev'
   packages << 'libffi-dev'
 when %r(redhat|fedora)
-  packages << 'zlib-devel'
+  packages << 'rpmforge-release'
+  packages << 'gdbm-devel'
   packages << 'openssl-devel'
+  packages << 'libyaml-devel'
   packages << 'readline-devel'
+  packages << 'zlib-devel'
+  packages << 'ncurses-devel'
+  packages << 'libffi-devel'
 end
 
 packages.each { |package_name| package package_name }
