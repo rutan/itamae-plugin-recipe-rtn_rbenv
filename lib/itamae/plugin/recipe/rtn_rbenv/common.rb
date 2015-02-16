@@ -18,7 +18,6 @@ when %r(debian|ubuntu)
   packages << 'libncurses5-dev'
   packages << 'libffi-dev'
 when %r(redhat|fedora)
-  packages << 'rpmforge-release'
   packages << 'gdbm-devel'
   packages << 'openssl-devel'
   packages << 'libyaml-devel'
