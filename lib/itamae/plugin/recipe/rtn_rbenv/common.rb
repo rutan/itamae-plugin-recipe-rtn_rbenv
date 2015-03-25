@@ -6,7 +6,7 @@ packages = []
 packages << 'gcc'
 packages << 'git'
 
-case os[:family]
+case node[:platform]
 when %r(debian|ubuntu)
   packages << 'autoconf'
   packages << 'bison'
