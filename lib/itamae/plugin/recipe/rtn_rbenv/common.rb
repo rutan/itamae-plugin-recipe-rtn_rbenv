@@ -17,7 +17,7 @@ when %r(debian|ubuntu)
   packages << 'zlib1g-dev'
   packages << 'libncurses5-dev'
   packages << 'libffi-dev'
-when %r(redhat|fedora)
+when %r(redhat|fedora|amazon)
   packages << 'gdbm-devel'
   packages << 'openssl-devel'
   packages << 'libyaml-devel'
