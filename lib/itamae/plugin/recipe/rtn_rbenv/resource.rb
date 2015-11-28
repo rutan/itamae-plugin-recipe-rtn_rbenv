@@ -10,12 +10,12 @@ define :rbenv_install, user: nil, profile_path: RBENV_DEFAULT_PROFILE_PATH do
   params = self.params
 
   git "#{params[:name]}" do
-    repository 'https://github.com/sstephenson/rbenv.git'
+    repository 'https://github.com/rbenv/rbenv.git'
     user params[:user] if params[:user]
   end
 
   git "#{params[:name]}/plugins/ruby_build" do
-    repository 'https://github.com/sstephenson/ruby-build.git'
+    repository 'https://github.com/rbenv/ruby-build.git'
     user params[:user] if params[:user]
   end
 
