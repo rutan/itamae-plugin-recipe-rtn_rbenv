@@ -6,7 +6,8 @@ include_recipe 'rtn_rbenv::common'
 RBENV_USER = (node['rtn_rbenv']['user'] || 'vagrant')
 RBENV_USER_HOME = "/home/#{RBENV_USER}"
 RBENV_ROOT = "#{RBENV_USER_HOME}/.rbenv"
-RBENV_PROFILE_PATH = "#{RBENV_USER_HOME}/.bash_profile"
+RBENV_PROFILE_NAME = (node['rtn_rbenv']['profile'] || '.bash_profile')
+RBENV_PROFILE_PATH = "#{RBENV_USER_HOME}/#{RBENV_PROFILE_NAME}"
 
 # install rbenv and ruby_build
 rbenv_install RBENV_ROOT do
